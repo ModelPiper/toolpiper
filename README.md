@@ -99,6 +99,8 @@ lsof -i -P | grep ToolPiper
 
 **Is this the same as "ToolPipe"?** No. ToolPiper (this page, `modelpiper.com`) is the macOS MCP server by ModelPiper. Unrelated projects with similar names exist in some directories.
 
+**What does the MIT license in this repo cover?** The contents of this repository — the server manifest, setup guides, and recipes. The ToolPiper app itself is proprietary (free tier + Pro).
+
 **Does it work without an internet connection?** Yes — inference, voice, vision, RAG, and system tools are all on-device. You only need the network to download models.
 
 **Can other machines connect?** Loopback is zero-config. LAN/remote access goes through bearer-token auth.

@@ -1,30 +1,52 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
-  "name": "com.modelpiper/toolpiper",
-  "description": "300+ MCP tools for macOS, all on-device — local LLM inference, voice (STT/TTS on the Neural Engine), vision/OCR, RAG, browser automation, testing, and ~140 system actions across 26 macOS domains. No cloud, no API keys.",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ModelPiper/toolpiper",
+  "description": "300+ on-device MCP tools for macOS — local AI, voice, vision, browser automation, system control.",
   "version": "0.0.6-beta",
   "status": "active",
   "repository": {
     "url": "https://github.com/ModelPiper/toolpiper.git",
     "source": "github"
   },
-  "website_url": "https://modelpiper.com/toolpiper",
   "icons": [
     {
       "src": "https://modelpiper.com/press/toolpiper-icon.png",
       "mimeType": "image/png",
-      "sizes": ["128x128"]
+      "sizes": [
+        "128x128"
+      ]
     }
   ],
   "packages": [],
   "remotes": [],
+  "websiteUrl": "https://modelpiper.com/toolpiper",
   "_meta": {
-    "tools": "300+",
-    "resources": 5,
-    "prompts": 5,
-    "categories": ["inference", "tts", "stt", "embeddings", "ocr", "vision", "nlp", "rag", "browser-automation", "testing", "system-actions", "video", "outreach", "model-management"],
-    "platform": "macOS",
-    "transports": ["stdio", "streamable-http"],
-    "setup": "Install ToolPiper from https://modelpiper.com, then: claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp (or stdio: claude mcp add toolpiper -- ~/.toolpiper/mcp)"
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "tools": "300+",
+      "resources": 5,
+      "prompts": 5,
+      "categories": [
+        "inference",
+        "tts",
+        "stt",
+        "embeddings",
+        "ocr",
+        "vision",
+        "nlp",
+        "rag",
+        "browser-automation",
+        "testing",
+        "system-actions",
+        "video",
+        "outreach",
+        "model-management"
+      ],
+      "platform": "macOS",
+      "transports": [
+        "stdio",
+        "streamable-http"
+      ],
+      "setup": "Install ToolPiper from https://modelpiper.com, then: claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp (or stdio: claude mcp add toolpiper -- ~/.toolpiper/mcp)"
+    }
   }
 }
