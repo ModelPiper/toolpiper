@@ -1,0 +1,27 @@
+# This file travels with the mirror, which is the point.
+#
+# The mirror is pushed to github.com/ModelPiper/toolpiper with `rsync --delete`,
+# and rsync copies what is ON DISK rather than what git tracks. The monorepo's
+# own .gitignore sits at the monorepo root, does not travel, and therefore
+# protects nothing on the far side. Without this file a push carries every
+# build artefact into a public repository whose commits the Claude plugin
+# marketplace pins by SHA, and git history makes that permanent.
+#
+# Measured 2026-09-05 before the first push: 3,643 files on disk against 24
+# tracked, the difference being desktop-extension/node_modules (28 MB) and a
+# 2.1 MB built .mcpb.
+
+# npm install output
+node_modules/
+
+# Built bundles: scripts/build-mcpb.sh writes dist/toolpiper-<version>.mcpb,
+# which ships as a GitHub Release asset, never as a tracked file.
+dist/
+
+# Python build and byte-code output for the integration packages
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+
+.DS_Store

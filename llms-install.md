@@ -1,29 +1,42 @@
-# ToolPiper — AI Agent Installation Guide
+# ToolPiper: AI Agent Installation Guide
 
-This guide is for AI agents (Cline, Claude Code, Cursor, etc.) installing ToolPiper as an MCP server on a user's Mac.
+This guide is for AI agents (Claude Code, Cline, Cursor, Codex, etc.) installing ToolPiper as an MCP server on a user's Mac.
 
 ## Requirements
 
-- macOS on Apple Silicon (M1 or later)
+- macOS 26 or later on Apple Silicon
 - No Docker, no Python, no API keys, no account
 
-## Step 1 — Install the app
+## Step 1: Install the app
 
 ToolPiper is a native macOS app distributed as a DMG:
 
-1. Download from https://modelpiper.com (free tier — the full local model runner has no caps and needs no account).
+1. Download from https://modelpiper.com/download (the free tier is the full local model runner: no caps, no account).
 2. Open the DMG and drag **ToolPiper.app** to `/Applications`.
-3. Launch ToolPiper once. On first launch it:
-   - starts the local HTTP + MCP server on `http://127.0.0.1:9998`
-   - creates the stdio bridge symlink at `~/.toolpiper/mcp`
+3. Launch ToolPiper once. It starts the local HTTP and MCP server on `http://127.0.0.1:9998`.
 
-The app must be running for either transport to work.
+The app must be running for the MCP server to answer.
 
-## Step 2 — Connect your MCP client
+## Step 2: Connect the MCP client
 
-### Option A: Streamable HTTP (recommended, zero config)
+ToolPiper serves one transport, Streamable HTTP, at `http://127.0.0.1:9998/mcp`. Loopback connections need no auth: no token, no OAuth step.
 
-Loopback connections need no auth — no token, no OAuth step.
+### Claude Code: the plugin (preferred)
+
+```bash
+claude plugin marketplace add ModelPiper/toolpiper
+claude plugin install toolpiper@modelpiper
+```
+
+The plugin declares the server and bundles a setup skill that diagnoses a missing or stopped app. It edits no configuration files.
+
+### Claude Code: a manual server entry
+
+```bash
+claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
+```
+
+### Any other MCP client
 
 ```json
 {
@@ -36,48 +49,25 @@ Loopback connections need no auth — no token, no OAuth step.
 }
 ```
 
-Claude Code one-liner:
+To reduce context usage, filter the catalog at connect time with a query parameter on the URL:
 
 ```bash
-claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
+claude mcp add --transport http toolpiper "http://127.0.0.1:9998/mcp?category=core"       # just LLM inference
+claude mcp add --transport http toolpiper "http://127.0.0.1:9998/mcp?profile=automation"  # core + browser + testing
 ```
 
-### Option B: stdio
+## Step 3: Verify
 
-The `~/.toolpiper/mcp` bridge reads the local ambient token automatically.
-
-```json
-{
-  "mcpServers": {
-    "toolpiper": {
-      "type": "stdio",
-      "command": "/Users/<username>/.toolpiper/mcp"
-    }
-  }
-}
-```
-
-Replace `<username>` with the actual macOS username (expand `~` — some clients do not).
-
-To reduce context usage, filter the 300+ tool catalog at connect time:
-
-```bash
-~/.toolpiper/mcp --category core      # just LLM inference (11 tools)
-~/.toolpiper/mcp --profile automation # web dev workflow (34 tools)
-```
-
-## Step 3 — Verify
-
-1. Confirm the app is running: `pgrep -x ToolPiper` should print a PID.
-2. Confirm the server is listening: `lsof -i :9998` should show ToolPiper.
-3. From the MCP client, list tools — the catalog reports 300+ tools, 5 resources, and 5 prompts. A quick smoke test: call `system_info` (no arguments).
+1. Confirm the app is running: `pgrep -x ToolPiper` prints a process id.
+2. Confirm the server is listening: `curl -s http://127.0.0.1:9998/health` returns JSON containing `"status":"ok"`.
+3. From the MCP client, list tools. The catalog reports 400+ tools, 5 resources, and 5 prompts. A quick smoke test: call `system_status` with no arguments.
 
 ## Troubleshooting
 
-- **Connection refused on 9998** — ToolPiper isn't running. Launch it from `/Applications` (`open -a ToolPiper`).
-- **`~/.toolpiper/mcp` missing** — the symlink is created on app launch; launch ToolPiper once, then retry.
-- **Client shows "needs authentication" for the loopback URL** — stale client-side session state; remove and re-add the server, then restart the client session. Loopback peers are trusted by design and never require an OAuth step.
-- **Connecting from another machine** — only loopback is zero-config. LAN/remote access requires bearer-token auth; see https://modelpiper.com/docs/toolpiper.
+- **Connection refused on 9998.** ToolPiper is not running. Launch it from `/Applications` (`open -a ToolPiper`) and wait a few seconds.
+- **The client shows "needs authentication" for the loopback URL.** Stale client-side session state; remove and re-add the server, then restart the client session. Loopback peers are trusted by design and never require an OAuth step.
+- **The client asks for a stdio command.** There is none. ToolPiper serves Streamable HTTP only; pick the HTTP transport and use the URL above.
+- **Connecting from another machine.** Only loopback is zero-config. LAN and remote access require bearer-token auth; see https://modelpiper.com/docs/toolpiper.
 
 ## Privacy notes
 

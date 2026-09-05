@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.ModelPiper/toolpiper",
-  "description": "300+ on-device MCP tools for macOS — local AI, voice, vision, browser automation, system control.",
-  "version": "0.0.6-beta",
+  "description": "On-device MCP tools for macOS: local AI, speech, vision, browser automation, system control.",
+  "version": "0.0.9-beta",
   "status": "active",
   "repository": {
     "url": "https://github.com/ModelPiper/toolpiper.git",
@@ -22,7 +22,7 @@
   "websiteUrl": "https://modelpiper.com/toolpiper",
   "_meta": {
     "io.modelcontextprotocol.registry/publisher-provided": {
-      "tools": "300+",
+      "tools": 425,
       "resources": 5,
       "prompts": 5,
       "categories": [
@@ -43,10 +43,9 @@
       ],
       "platform": "macOS",
       "transports": [
-        "stdio",
         "streamable-http"
       ],
-      "setup": "Install ToolPiper from https://modelpiper.com, then: claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp (or stdio: claude mcp add toolpiper -- ~/.toolpiper/mcp)"
+      "setup": "Install ToolPiper from https://modelpiper.com/download, launch it once, then: claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp"
     }
   }
 }

@@ -1,0 +1,1721 @@
+{
+  "manifest_version": "0.3",
+  "name": "toolpiper",
+  "display_name": "ToolPiper",
+  "version": "1.0.0",
+  "description": "On-device MCP tools for macOS: local AI, speech, vision, browser automation, and system control, all running on your own Mac.",
+  "long_description": "ToolPiper is a native macOS app that turns your Mac into a local AI platform: bundled inference on Metal and the Neural Engine, speech to text and text to speech, Apple Vision OCR and image analysis, Chrome automation over the accessibility tree, and native system control. This extension is a small forwarder: Claude Desktop launches it over stdio and it relays your requests to the ToolPiper already running on this Mac, over loopback. Nothing it sends leaves the machine.",
+  "author": {
+    "name": "Ben Racicot",
+    "email": "bracicot@modelpiper.com",
+    "url": "https://github.com/ModelPiper"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ModelPiper/toolpiper"
+  },
+  "homepage": "https://modelpiper.com/toolpiper",
+  "documentation": "https://modelpiper.com/docs/toolpiper",
+  "support": "https://github.com/ModelPiper/toolpiper/issues",
+  "icon": "icon.png",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "macos",
+    "local-ai",
+    "on-device",
+    "speech-to-text",
+    "text-to-speech",
+    "ocr",
+    "browser-automation",
+    "system-control"
+  ],
+  "privacy_policies": [
+    "https://modelpiper.com/privacy"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ]
+    }
+  },
+  "compatibility": {
+    "platforms": [
+      "darwin"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "tools_generated": true,
+  "tools": [
+    {
+      "name": "archive_create",
+      "description": "Create Archive"
+    },
+    {
+      "name": "archive_extract",
+      "description": "Extract Archive"
+    },
+    {
+      "name": "archive_list",
+      "description": "List Archive Entries"
+    },
+    {
+      "name": "asset_delete",
+      "description": "Delete Asset"
+    },
+    {
+      "name": "asset_describe",
+      "description": "Describe Asset"
+    },
+    {
+      "name": "audio_record",
+      "description": "Record Audio"
+    },
+    {
+      "name": "audio_transcribe",
+      "description": "Transcribe Audio"
+    },
+    {
+      "name": "autopilot_history_query",
+      "description": "Query Autopilot History"
+    },
+    {
+      "name": "autopilot_resume",
+      "description": "Resume Autopilot"
+    },
+    {
+      "name": "autopilot_start",
+      "description": "Start Autopilot"
+    },
+    {
+      "name": "autopilot_status",
+      "description": "Autopilot Status"
+    },
+    {
+      "name": "autopilot_stop",
+      "description": "Stop Autopilot"
+    },
+    {
+      "name": "browser_action",
+      "description": "Browser Action"
+    },
+    {
+      "name": "browser_assert",
+      "description": "Browser Assert"
+    },
+    {
+      "name": "browser_autofill",
+      "description": "Browser Autofill"
+    },
+    {
+      "name": "browser_connect",
+      "description": "Browser Connection"
+    },
+    {
+      "name": "browser_console",
+      "description": "Browser Console"
+    },
+    {
+      "name": "browser_coverage",
+      "description": "Code Coverage"
+    },
+    {
+      "name": "browser_detect",
+      "description": "Detect Framework"
+    },
+    {
+      "name": "browser_dialog_handle",
+      "description": "Handle JavaScript Dialog"
+    },
+    {
+      "name": "browser_emulate",
+      "description": "Browser Emulate"
+    },
+    {
+      "name": "browser_eval",
+      "description": "Evaluate JavaScript"
+    },
+    {
+      "name": "browser_intercept",
+      "description": "Intercept Requests"
+    },
+    {
+      "name": "browser_locator",
+      "description": "Browser Locator"
+    },
+    {
+      "name": "browser_network",
+      "description": "Browser Network"
+    },
+    {
+      "name": "browser_page_close",
+      "description": "Close Browser Tab"
+    },
+    {
+      "name": "browser_page_list",
+      "description": "List Browser Tabs"
+    },
+    {
+      "name": "browser_page_new",
+      "description": "Open New Browser Tab"
+    },
+    {
+      "name": "browser_page_select",
+      "description": "Select Browser Tab"
+    },
+    {
+      "name": "browser_pdf",
+      "description": "Browser PDF"
+    },
+    {
+      "name": "browser_performance",
+      "description": "Browser Performance"
+    },
+    {
+      "name": "browser_record",
+      "description": "Record Interactions"
+    },
+    {
+      "name": "browser_snapshot",
+      "description": "Browser Snapshot"
+    },
+    {
+      "name": "browser_storage",
+      "description": "Browser Storage"
+    },
+    {
+      "name": "browser_viewport_resize",
+      "description": "Resize Browser Viewport"
+    },
+    {
+      "name": "browser_webauthn",
+      "description": "WebAuthn Testing"
+    },
+    {
+      "name": "chat",
+      "description": "Chat with Local LLM"
+    },
+    {
+      "name": "claude_code_install",
+      "description": "Install Claude Code Helper"
+    },
+    {
+      "name": "claude_code_status",
+      "description": "Claude Code Helper Status"
+    },
+    {
+      "name": "claude_code_uninstall",
+      "description": "Uninstall Claude Code Helper"
+    },
+    {
+      "name": "code_search",
+      "description": "Search Code"
+    },
+    {
+      "name": "debug_leak",
+      "description": "Debug Leak (verification fixture)"
+    },
+    {
+      "name": "endpoint_list",
+      "description": "List Inference Endpoints"
+    },
+    {
+      "name": "endpoint_recommend",
+      "description": "Recommend Inference Endpoint"
+    },
+    {
+      "name": "endpoint_set",
+      "description": "Switch Inference Endpoint"
+    },
+    {
+      "name": "endpoint_status",
+      "description": "Active Inference Endpoint"
+    },
+    {
+      "name": "file_copy",
+      "description": "Copy File or Directory"
+    },
+    {
+      "name": "file_create",
+      "description": "Create File"
+    },
+    {
+      "name": "file_create_directory",
+      "description": "Create Directory"
+    },
+    {
+      "name": "file_delete",
+      "description": "Delete File"
+    },
+    {
+      "name": "file_delete_directory",
+      "description": "Delete Directory"
+    },
+    {
+      "name": "file_edit",
+      "description": "Edit File"
+    },
+    {
+      "name": "file_list_directory",
+      "description": "List Directory"
+    },
+    {
+      "name": "file_move",
+      "description": "Move File"
+    },
+    {
+      "name": "file_pick_directory",
+      "description": "Pick Directory"
+    },
+    {
+      "name": "file_read",
+      "description": "Read File"
+    },
+    {
+      "name": "file_write",
+      "description": "Write File"
+    },
+    {
+      "name": "git_checkout",
+      "description": "Git Checkout"
+    },
+    {
+      "name": "git_commit",
+      "description": "Git Commit"
+    },
+    {
+      "name": "git_diff",
+      "description": "Git Diff"
+    },
+    {
+      "name": "git_log",
+      "description": "Git Log"
+    },
+    {
+      "name": "git_push",
+      "description": "Git Push"
+    },
+    {
+      "name": "git_status",
+      "description": "Git Status"
+    },
+    {
+      "name": "github_activity",
+      "description": "GitHub Activity"
+    },
+    {
+      "name": "github_compare",
+      "description": "GitHub Compare"
+    },
+    {
+      "name": "github_repo_list",
+      "description": "List GitHub Repos"
+    },
+    {
+      "name": "gsc_analytics",
+      "description": "GSC Search Analytics"
+    },
+    {
+      "name": "gsc_inspect",
+      "description": "GSC URL Inspection"
+    },
+    {
+      "name": "gsc_site_list",
+      "description": "GSC Properties"
+    },
+    {
+      "name": "gsc_sitemap_list",
+      "description": "GSC Sitemaps"
+    },
+    {
+      "name": "hn_search",
+      "description": "Search Hacker News"
+    },
+    {
+      "name": "hn_trending_list",
+      "description": "HN Trending Stories"
+    },
+    {
+      "name": "http_request",
+      "description": "HTTP Request"
+    },
+    {
+      "name": "http_request_replay",
+      "description": "Replay API Request"
+    },
+    {
+      "name": "image_adjust",
+      "description": "Adjust Image Tones"
+    },
+    {
+      "name": "image_analyze",
+      "description": "Analyze Image"
+    },
+    {
+      "name": "image_black_and_white",
+      "description": "Convert Image to Black and White"
+    },
+    {
+      "name": "image_blend_masked",
+      "description": "Blend Edit Into Region"
+    },
+    {
+      "name": "image_conditioning",
+      "description": "Derive Conditioning Field"
+    },
+    {
+      "name": "image_crop",
+      "description": "Crop Image"
+    },
+    {
+      "name": "image_curves",
+      "description": "Apply Image Tone Curve"
+    },
+    {
+      "name": "image_cutout",
+      "description": "Cut Out Subject"
+    },
+    {
+      "name": "image_edit",
+      "description": "Edit Image"
+    },
+    {
+      "name": "image_erase_region",
+      "description": "Erase Region (Remove and Fill Background)"
+    },
+    {
+      "name": "image_fill",
+      "description": "Fill Image with Color"
+    },
+    {
+      "name": "image_filter",
+      "description": "Filter Image"
+    },
+    {
+      "name": "image_flip",
+      "description": "Flip Image"
+    },
+    {
+      "name": "image_free_transform",
+      "description": "Free Transform Image"
+    },
+    {
+      "name": "image_gradient",
+      "description": "Fill Image with Gradient"
+    },
+    {
+      "name": "image_gradient_map",
+      "description": "Gradient-Map Image"
+    },
+    {
+      "name": "image_grayscale",
+      "description": "Grayscale Image"
+    },
+    {
+      "name": "image_import",
+      "description": "Import Image"
+    },
+    {
+      "name": "image_inpaint",
+      "description": "Inpaint Region (Generative Fill)"
+    },
+    {
+      "name": "image_invert",
+      "description": "Invert Image Colors"
+    },
+    {
+      "name": "image_levels",
+      "description": "Remap Image Levels"
+    },
+    {
+      "name": "image_mask_refine",
+      "description": "Refine Selection Mask"
+    },
+    {
+      "name": "image_outpaint",
+      "description": "Outpaint (Extend Canvas)"
+    },
+    {
+      "name": "image_perspective",
+      "description": "Correct Image Perspective"
+    },
+    {
+      "name": "image_posterize",
+      "description": "Posterize Image"
+    },
+    {
+      "name": "image_remove_subject",
+      "description": "Remove Subject"
+    },
+    {
+      "name": "image_resize",
+      "description": "Resize Image"
+    },
+    {
+      "name": "image_rotate",
+      "description": "Rotate Image"
+    },
+    {
+      "name": "image_segment",
+      "description": "Segment Image"
+    },
+    {
+      "name": "image_straighten",
+      "description": "Straighten Image"
+    },
+    {
+      "name": "image_text",
+      "description": "Add Text to Image"
+    },
+    {
+      "name": "image_threshold",
+      "description": "Threshold Image"
+    },
+    {
+      "name": "image_transform",
+      "description": "Transform Image"
+    },
+    {
+      "name": "image_upscale",
+      "description": "Upscale Image"
+    },
+    {
+      "name": "image_upscale_benchmark",
+      "description": "Run Upscale Benchmark"
+    },
+    {
+      "name": "job_cancel",
+      "description": "Cancel Job"
+    },
+    {
+      "name": "job_result",
+      "description": "Get Job Result"
+    },
+    {
+      "name": "job_status",
+      "description": "Get Job Status"
+    },
+    {
+      "name": "media_extract",
+      "description": "Extract Page Media"
+    },
+    {
+      "name": "media_host",
+      "description": "Host Media Artifact"
+    },
+    {
+      "name": "media_project_add_adjustment_layer",
+      "description": "Add Image Adjustment Layer"
+    },
+    {
+      "name": "media_project_add_facet",
+      "description": "Add Media Project Facet"
+    },
+    {
+      "name": "media_project_add_layer",
+      "description": "Add Image Layer"
+    },
+    {
+      "name": "media_project_add_source",
+      "description": "Add Media Project Source"
+    },
+    {
+      "name": "media_project_create",
+      "description": "Create Media Project"
+    },
+    {
+      "name": "media_project_delete",
+      "description": "Delete Media Project"
+    },
+    {
+      "name": "media_project_delete_layer",
+      "description": "Delete Image Layer"
+    },
+    {
+      "name": "media_project_flatten",
+      "description": "Flatten Image Layers"
+    },
+    {
+      "name": "media_project_get",
+      "description": "Get Media Project"
+    },
+    {
+      "name": "media_project_merge_down",
+      "description": "Merge Image Layer Down"
+    },
+    {
+      "name": "media_project_remove_source",
+      "description": "Remove Media Project Source"
+    },
+    {
+      "name": "media_project_rename",
+      "description": "Rename Media Project"
+    },
+    {
+      "name": "media_project_reorder_layers",
+      "description": "Reorder Image Layers"
+    },
+    {
+      "name": "media_project_reorder_source",
+      "description": "Reorder Media Project Sources"
+    },
+    {
+      "name": "media_project_set_layer",
+      "description": "Set Image Layer Properties"
+    },
+    {
+      "name": "media_project_set_layer_mask",
+      "description": "Set Image Layer Mask"
+    },
+    {
+      "name": "media_project_set_layer_transform",
+      "description": "Set Image Layer Transform"
+    },
+    {
+      "name": "model_checkpoint_add",
+      "description": "Add BYO Native Checkpoint"
+    },
+    {
+      "name": "model_download",
+      "description": "Download Model"
+    },
+    {
+      "name": "model_download_cancel",
+      "description": "Cancel Model Download"
+    },
+    {
+      "name": "model_download_list",
+      "description": "List Active Model Downloads"
+    },
+    {
+      "name": "model_list",
+      "description": "List Models"
+    },
+    {
+      "name": "model_load",
+      "description": "Load Model"
+    },
+    {
+      "name": "model_repo_info",
+      "description": "Inspect Model"
+    },
+    {
+      "name": "model_search",
+      "description": "Search for Models"
+    },
+    {
+      "name": "model_unload",
+      "description": "Unload Model"
+    },
+    {
+      "name": "oauth_connect",
+      "description": "Connect OAuth Provider"
+    },
+    {
+      "name": "oauth_connect_service_account",
+      "description": "Connect Service Account"
+    },
+    {
+      "name": "oauth_disconnect",
+      "description": "Disconnect OAuth Provider"
+    },
+    {
+      "name": "oauth_status",
+      "description": "OAuth Connection Status"
+    },
+    {
+      "name": "outreach_project_get",
+      "description": "Get Outreach Project"
+    },
+    {
+      "name": "outreach_project_list",
+      "description": "List Outreach Projects"
+    },
+    {
+      "name": "outreach_project_update",
+      "description": "Update Outreach Project"
+    },
+    {
+      "name": "pdf_extract",
+      "description": "Extract from PDF"
+    },
+    {
+      "name": "pose_detect",
+      "description": "Detect Poses"
+    },
+    {
+      "name": "pose_format_list",
+      "description": "List Pose Formats"
+    },
+    {
+      "name": "pose_stream_start",
+      "description": "Start Pose Stream"
+    },
+    {
+      "name": "qr_generate",
+      "description": "Generate QR Code"
+    },
+    {
+      "name": "queue_add",
+      "description": "Add to Queue"
+    },
+    {
+      "name": "queue_list",
+      "description": "List Content Queue"
+    },
+    {
+      "name": "queue_publish",
+      "description": "Publish from Queue"
+    },
+    {
+      "name": "rag_collection_list",
+      "description": "List RAG Collections"
+    },
+    {
+      "name": "rag_ingest",
+      "description": "Re-index RAG Collection"
+    },
+    {
+      "name": "rag_query",
+      "description": "Search Knowledge Base"
+    },
+    {
+      "name": "reddit_post",
+      "description": "Post to Reddit"
+    },
+    {
+      "name": "reddit_search",
+      "description": "Search Reddit"
+    },
+    {
+      "name": "request_tools",
+      "description": "Find More Tools"
+    },
+    {
+      "name": "schedule_create",
+      "description": "Create Schedule"
+    },
+    {
+      "name": "schedule_delete",
+      "description": "Delete Schedule"
+    },
+    {
+      "name": "schedule_get",
+      "description": "Get Schedule"
+    },
+    {
+      "name": "schedule_list",
+      "description": "List Schedules"
+    },
+    {
+      "name": "schedule_run_now",
+      "description": "Run Schedule Now"
+    },
+    {
+      "name": "schedule_update",
+      "description": "Update Schedule"
+    },
+    {
+      "name": "serp_autocomplete",
+      "description": "SERP Autocomplete"
+    },
+    {
+      "name": "serp_rank_check",
+      "description": "SERP Rank Check"
+    },
+    {
+      "name": "serp_search",
+      "description": "SERP Search"
+    },
+    {
+      "name": "sieve_heal",
+      "description": "Heal or Create Sieve"
+    },
+    {
+      "name": "sieve_inspect",
+      "description": "Inspect Domain Sieve"
+    },
+    {
+      "name": "sieve_list",
+      "description": "List Cached Sieves"
+    },
+    {
+      "name": "sieve_test",
+      "description": "Test Sieve on URL"
+    },
+    {
+      "name": "storyboard_add_shot",
+      "description": "Add Storyboard Shot"
+    },
+    {
+      "name": "storyboard_assemble",
+      "description": "Assemble Storyboard"
+    },
+    {
+      "name": "storyboard_create",
+      "description": "Create Storyboard"
+    },
+    {
+      "name": "storyboard_get",
+      "description": "Get Storyboard"
+    },
+    {
+      "name": "storyboard_remove_shot",
+      "description": "Remove Storyboard Shot"
+    },
+    {
+      "name": "storyboard_reorder",
+      "description": "Reorder Storyboard Shots"
+    },
+    {
+      "name": "storyboard_set_shot",
+      "description": "Set Storyboard Shot"
+    },
+    {
+      "name": "storyboard_update",
+      "description": "Update Storyboard Scene"
+    },
+    {
+      "name": "stream_save",
+      "description": "Save Video Stream"
+    },
+    {
+      "name": "support_search",
+      "description": "Search Piper Product Help"
+    },
+    {
+      "name": "system_accessibility_contrast_set",
+      "description": "Set Increase Contrast"
+    },
+    {
+      "name": "system_accessibility_reduce_motion_set",
+      "description": "Set Reduce Motion"
+    },
+    {
+      "name": "system_accessibility_state",
+      "description": "Accessibility State"
+    },
+    {
+      "name": "system_accessibility_voiceover_set",
+      "description": "Set VoiceOver"
+    },
+    {
+      "name": "system_accessibility_zoom_set",
+      "description": "Set Zoom"
+    },
+    {
+      "name": "system_app_assert_attribute",
+      "description": "Assert Element Attribute"
+    },
+    {
+      "name": "system_app_assert_count",
+      "description": "Assert Element Count"
+    },
+    {
+      "name": "system_app_assert_enabled",
+      "description": "Assert Element Enabled"
+    },
+    {
+      "name": "system_app_assert_focused",
+      "description": "Assert Element Focused"
+    },
+    {
+      "name": "system_app_assert_hidden",
+      "description": "Assert Element Hidden"
+    },
+    {
+      "name": "system_app_assert_text",
+      "description": "Assert Element Text"
+    },
+    {
+      "name": "system_app_assert_visible",
+      "description": "Assert Element Visible"
+    },
+    {
+      "name": "system_app_circuit_reset",
+      "description": "Reset Grounding Circuit Breaker"
+    },
+    {
+      "name": "system_app_click",
+      "description": "Native App Click"
+    },
+    {
+      "name": "system_app_confirm",
+      "description": "Native App Confirm"
+    },
+    {
+      "name": "system_app_fill",
+      "description": "Native App Fill Text"
+    },
+    {
+      "name": "system_app_list",
+      "description": "List Running Apps"
+    },
+    {
+      "name": "system_app_press",
+      "description": "Native App Press"
+    },
+    {
+      "name": "system_app_resolve",
+      "description": "VLM Ground Target"
+    },
+    {
+      "name": "system_app_scroll",
+      "description": "Native App Scroll Into View"
+    },
+    {
+      "name": "system_app_set_value",
+      "description": "Native App Set Value"
+    },
+    {
+      "name": "system_app_show_menu",
+      "description": "Native App Show Menu"
+    },
+    {
+      "name": "system_app_snapshot",
+      "description": "Native App AX Snapshot"
+    },
+    {
+      "name": "system_appearance_accent_set",
+      "description": "Set Accent Color"
+    },
+    {
+      "name": "system_appearance_highlight_set",
+      "description": "Set Highlight Color"
+    },
+    {
+      "name": "system_appearance_reduce_transparency_set",
+      "description": "Reduce Transparency"
+    },
+    {
+      "name": "system_appearance_sidebar_size_set",
+      "description": "Set Sidebar Icon Size"
+    },
+    {
+      "name": "system_appearance_state",
+      "description": "Appearance State"
+    },
+    {
+      "name": "system_audio_device_list",
+      "description": "List Audio Devices"
+    },
+    {
+      "name": "system_audio_output_set",
+      "description": "Switch Audio Output"
+    },
+    {
+      "name": "system_audio_state",
+      "description": "Audio State"
+    },
+    {
+      "name": "system_batch",
+      "description": "Batch Action Execution"
+    },
+    {
+      "name": "system_bluetooth_connect",
+      "description": "Connect Bluetooth Device"
+    },
+    {
+      "name": "system_bluetooth_device_list",
+      "description": "List Paired Bluetooth Devices"
+    },
+    {
+      "name": "system_bluetooth_disconnect",
+      "description": "Disconnect Bluetooth Device"
+    },
+    {
+      "name": "system_bluetooth_set",
+      "description": "Set Bluetooth Power"
+    },
+    {
+      "name": "system_bluetooth_state",
+      "description": "Bluetooth State"
+    },
+    {
+      "name": "system_calendar_event_create",
+      "description": "Create Calendar Event"
+    },
+    {
+      "name": "system_calendar_event_delete",
+      "description": "Delete Calendar Event"
+    },
+    {
+      "name": "system_calendar_event_list",
+      "description": "List Calendar Events"
+    },
+    {
+      "name": "system_calendar_event_update",
+      "description": "Update Calendar Event"
+    },
+    {
+      "name": "system_calendar_list",
+      "description": "List Calendars"
+    },
+    {
+      "name": "system_clipboard_clear",
+      "description": "Clear Clipboard History"
+    },
+    {
+      "name": "system_clipboard_delete",
+      "description": "Delete Clipboard Item"
+    },
+    {
+      "name": "system_clipboard_get",
+      "description": "Get Clipboard Item"
+    },
+    {
+      "name": "system_clipboard_history",
+      "description": "Clipboard History"
+    },
+    {
+      "name": "system_clipboard_pin",
+      "description": "Pin Clipboard Item"
+    },
+    {
+      "name": "system_clipboard_read",
+      "description": "Read Clipboard"
+    },
+    {
+      "name": "system_clipboard_restore",
+      "description": "Restore Clipboard Item"
+    },
+    {
+      "name": "system_clipboard_search",
+      "description": "Search Clipboard"
+    },
+    {
+      "name": "system_clipboard_unpin",
+      "description": "Unpin Clipboard Item"
+    },
+    {
+      "name": "system_clipboard_write",
+      "description": "Write Clipboard"
+    },
+    {
+      "name": "system_contact_create",
+      "description": "Create Contact"
+    },
+    {
+      "name": "system_contact_get",
+      "description": "Get Contact"
+    },
+    {
+      "name": "system_contact_search",
+      "description": "Search Contacts"
+    },
+    {
+      "name": "system_contact_update",
+      "description": "Update Contact"
+    },
+    {
+      "name": "system_default_handler_get",
+      "description": "Get Default Handler"
+    },
+    {
+      "name": "system_default_handler_set",
+      "description": "Set Default Handler"
+    },
+    {
+      "name": "system_defaults_read",
+      "description": "Read Defaults"
+    },
+    {
+      "name": "system_defaults_write",
+      "description": "Write Defaults"
+    },
+    {
+      "name": "system_desktop_hot_corners",
+      "description": "Hot Corners"
+    },
+    {
+      "name": "system_desktop_screensaver_start",
+      "description": "Start Screen Saver"
+    },
+    {
+      "name": "system_desktop_stage_manager_set",
+      "description": "Set Stage Manager"
+    },
+    {
+      "name": "system_desktop_wallpaper_get",
+      "description": "Get Wallpaper"
+    },
+    {
+      "name": "system_desktop_wallpaper_set",
+      "description": "Set Wallpaper"
+    },
+    {
+      "name": "system_display_arrange",
+      "description": "Arrange Display"
+    },
+    {
+      "name": "system_display_brightness_set",
+      "description": "Set Brightness"
+    },
+    {
+      "name": "system_display_dark_mode_set",
+      "description": "Set Dark Mode"
+    },
+    {
+      "name": "system_display_list",
+      "description": "List Displays"
+    },
+    {
+      "name": "system_display_mirror_set",
+      "description": "Mirror Displays"
+    },
+    {
+      "name": "system_display_mode_list",
+      "description": "List Display Modes"
+    },
+    {
+      "name": "system_display_night_shift_set",
+      "description": "Set Night Shift"
+    },
+    {
+      "name": "system_display_resolution_set",
+      "description": "Set Display Resolution"
+    },
+    {
+      "name": "system_display_rotate",
+      "description": "Rotate Display"
+    },
+    {
+      "name": "system_display_state",
+      "description": "Display State"
+    },
+    {
+      "name": "system_display_true_tone_set",
+      "description": "Set True Tone"
+    },
+    {
+      "name": "system_dock_app_add",
+      "description": "Add App to Dock"
+    },
+    {
+      "name": "system_dock_app_remove",
+      "description": "Remove App from Dock"
+    },
+    {
+      "name": "system_dock_autohide_set",
+      "description": "Set Dock Auto-Hide"
+    },
+    {
+      "name": "system_dock_magnification_set",
+      "description": "Set Dock Magnification"
+    },
+    {
+      "name": "system_dock_position_set",
+      "description": "Set Dock Position"
+    },
+    {
+      "name": "system_dock_size_set",
+      "description": "Set Dock Size"
+    },
+    {
+      "name": "system_dock_state",
+      "description": "Dock State"
+    },
+    {
+      "name": "system_finder_info",
+      "description": "Get File Info"
+    },
+    {
+      "name": "system_finder_open",
+      "description": "Open in Finder"
+    },
+    {
+      "name": "system_finder_reveal",
+      "description": "Reveal in Finder"
+    },
+    {
+      "name": "system_finder_tags",
+      "description": "Get/Set Finder Tags"
+    },
+    {
+      "name": "system_finder_trash",
+      "description": "Move to Trash"
+    },
+    {
+      "name": "system_finder_trash_empty",
+      "description": "Empty Trash"
+    },
+    {
+      "name": "system_focus_profile_list",
+      "description": "List Focus Profiles"
+    },
+    {
+      "name": "system_focus_set",
+      "description": "Set Focus"
+    },
+    {
+      "name": "system_focus_state",
+      "description": "Focus State"
+    },
+    {
+      "name": "system_info",
+      "description": "System Info"
+    },
+    {
+      "name": "system_input_click",
+      "description": "Click Mouse"
+    },
+    {
+      "name": "system_input_drag",
+      "description": "Drag Mouse"
+    },
+    {
+      "name": "system_input_key",
+      "description": "Press Key"
+    },
+    {
+      "name": "system_input_move",
+      "description": "Move Cursor"
+    },
+    {
+      "name": "system_input_scroll",
+      "description": "Scroll Wheel"
+    },
+    {
+      "name": "system_input_type",
+      "description": "Type Text"
+    },
+    {
+      "name": "system_location_current",
+      "description": "Current Location"
+    },
+    {
+      "name": "system_location_status",
+      "description": "Location Services Status"
+    },
+    {
+      "name": "system_lock",
+      "description": "Lock Screen"
+    },
+    {
+      "name": "system_logout",
+      "description": "Log Out"
+    },
+    {
+      "name": "system_media_next",
+      "description": "Next Track"
+    },
+    {
+      "name": "system_media_now_playing",
+      "description": "Now Playing"
+    },
+    {
+      "name": "system_media_play_pause",
+      "description": "Play / Pause Media"
+    },
+    {
+      "name": "system_media_prev",
+      "description": "Previous Track"
+    },
+    {
+      "name": "system_mute_set",
+      "description": "Set Mute"
+    },
+    {
+      "name": "system_network_dns",
+      "description": "Get DNS Servers"
+    },
+    {
+      "name": "system_network_interface_list",
+      "description": "List Network Interfaces"
+    },
+    {
+      "name": "system_network_join",
+      "description": "Join Wi-Fi Network"
+    },
+    {
+      "name": "system_network_ping",
+      "description": "Ping Host"
+    },
+    {
+      "name": "system_network_scan",
+      "description": "Scan Wi-Fi Networks"
+    },
+    {
+      "name": "system_network_ssid",
+      "description": "Current SSID"
+    },
+    {
+      "name": "system_network_state",
+      "description": "Network State"
+    },
+    {
+      "name": "system_network_wifi_set",
+      "description": "Set Wi-Fi Power"
+    },
+    {
+      "name": "system_notification_clear",
+      "description": "Clear Notifications"
+    },
+    {
+      "name": "system_notification_post",
+      "description": "Post Notification"
+    },
+    {
+      "name": "system_notification_schedule",
+      "description": "Schedule Notification"
+    },
+    {
+      "name": "system_observe",
+      "description": "System Observation"
+    },
+    {
+      "name": "system_power_prevent_display_sleep",
+      "description": "Prevent Display Sleep"
+    },
+    {
+      "name": "system_power_prevent_sleep",
+      "description": "Prevent Sleep"
+    },
+    {
+      "name": "system_power_state",
+      "description": "Power State"
+    },
+    {
+      "name": "system_process_frontmost",
+      "description": "Frontmost App"
+    },
+    {
+      "name": "system_process_info",
+      "description": "Process Info"
+    },
+    {
+      "name": "system_process_kill",
+      "description": "Kill Process"
+    },
+    {
+      "name": "system_process_launch",
+      "description": "Launch App"
+    },
+    {
+      "name": "system_process_list",
+      "description": "List Processes"
+    },
+    {
+      "name": "system_reminder_complete",
+      "description": "Complete Reminder"
+    },
+    {
+      "name": "system_reminder_create",
+      "description": "Create Reminder"
+    },
+    {
+      "name": "system_reminder_delete",
+      "description": "Delete Reminder"
+    },
+    {
+      "name": "system_reminder_list",
+      "description": "List Reminders"
+    },
+    {
+      "name": "system_reminder_list_list",
+      "description": "List Reminder Lists"
+    },
+    {
+      "name": "system_resources",
+      "description": "System Resources"
+    },
+    {
+      "name": "system_restart",
+      "description": "Restart Mac"
+    },
+    {
+      "name": "system_run_command",
+      "description": "Run Shell Command"
+    },
+    {
+      "name": "system_settings_open",
+      "description": "Open System Settings"
+    },
+    {
+      "name": "system_shortcut_list",
+      "description": "List Shortcuts"
+    },
+    {
+      "name": "system_shortcut_run",
+      "description": "Run Shortcut"
+    },
+    {
+      "name": "system_shutdown",
+      "description": "Shut Down Mac"
+    },
+    {
+      "name": "system_sleep",
+      "description": "Sleep Mac"
+    },
+    {
+      "name": "system_spaces_delete",
+      "description": "Delete Space"
+    },
+    {
+      "name": "system_spaces_list",
+      "description": "List Spaces"
+    },
+    {
+      "name": "system_spaces_switch",
+      "description": "Switch Space"
+    },
+    {
+      "name": "system_spaces_window_move",
+      "description": "Move Window to Space"
+    },
+    {
+      "name": "system_status",
+      "description": "Server Status"
+    },
+    {
+      "name": "system_storage_eject",
+      "description": "Eject Volume"
+    },
+    {
+      "name": "system_storage_usage",
+      "description": "Disk Usage"
+    },
+    {
+      "name": "system_storage_volume_list",
+      "description": "List Volumes"
+    },
+    {
+      "name": "system_timer_cancel",
+      "description": "Cancel Timer"
+    },
+    {
+      "name": "system_timer_clear",
+      "description": "Clear All Timers"
+    },
+    {
+      "name": "system_timer_list",
+      "description": "List Timers"
+    },
+    {
+      "name": "system_timer_start",
+      "description": "Start Timer"
+    },
+    {
+      "name": "system_undo",
+      "description": "Undo Last Action"
+    },
+    {
+      "name": "system_undo_list",
+      "description": "List Undoable Actions"
+    },
+    {
+      "name": "system_uptime",
+      "description": "System Uptime"
+    },
+    {
+      "name": "system_url_open",
+      "description": "Open URL"
+    },
+    {
+      "name": "system_volume_set",
+      "description": "Set Volume"
+    },
+    {
+      "name": "system_window_close",
+      "description": "Close Window"
+    },
+    {
+      "name": "system_window_focus",
+      "description": "Focus Window"
+    },
+    {
+      "name": "system_window_fullscreen_set",
+      "description": "Set Window Fullscreen"
+    },
+    {
+      "name": "system_window_layout",
+      "description": "Apply Window Layout"
+    },
+    {
+      "name": "system_window_list",
+      "description": "List Windows"
+    },
+    {
+      "name": "system_window_minimize_set",
+      "description": "Set Window Minimized"
+    },
+    {
+      "name": "system_window_move",
+      "description": "Move Window"
+    },
+    {
+      "name": "system_window_resize",
+      "description": "Resize Window"
+    },
+    {
+      "name": "system_window_snap",
+      "description": "Snap Window"
+    },
+    {
+      "name": "task_complete",
+      "description": "Complete Task"
+    },
+    {
+      "name": "task_create",
+      "description": "Create Task"
+    },
+    {
+      "name": "task_update",
+      "description": "Update Task"
+    },
+    {
+      "name": "test_delete",
+      "description": "Delete Test"
+    },
+    {
+      "name": "test_export",
+      "description": "Export Test"
+    },
+    {
+      "name": "test_get",
+      "description": "Get Test"
+    },
+    {
+      "name": "test_list",
+      "description": "List Tests"
+    },
+    {
+      "name": "test_run",
+      "description": "Run Test"
+    },
+    {
+      "name": "test_save",
+      "description": "Save Test"
+    },
+    {
+      "name": "text_analyze",
+      "description": "Analyze Text"
+    },
+    {
+      "name": "text_embed",
+      "description": "Generate Embeddings"
+    },
+    {
+      "name": "text_translate",
+      "description": "Translate Text"
+    },
+    {
+      "name": "tool_docs",
+      "description": "Tool Documentation"
+    },
+    {
+      "name": "tool_search",
+      "description": "Search Tools"
+    },
+    {
+      "name": "video_add_clip",
+      "description": "Add Timeline Clip"
+    },
+    {
+      "name": "video_capabilities",
+      "description": "Video Capabilities"
+    },
+    {
+      "name": "video_clip",
+      "description": "Clip Video Segment"
+    },
+    {
+      "name": "video_clips",
+      "description": "List Video Clips"
+    },
+    {
+      "name": "video_delete",
+      "description": "Delete Screenplay"
+    },
+    {
+      "name": "video_edit_composition",
+      "description": "Edit Composition Settings"
+    },
+    {
+      "name": "video_edit_narration",
+      "description": "Edit Narration Settings"
+    },
+    {
+      "name": "video_edit_screenplay",
+      "description": "Edit Screenplay Structure"
+    },
+    {
+      "name": "video_edit_timeline",
+      "description": "Edit Timeline Segments"
+    },
+    {
+      "name": "video_export",
+      "description": "Export Timeline"
+    },
+    {
+      "name": "video_export_file",
+      "description": "Export Video To File"
+    },
+    {
+      "name": "video_export_timeline",
+      "description": "Export Timeline"
+    },
+    {
+      "name": "video_get",
+      "description": "Get Screenplay"
+    },
+    {
+      "name": "video_import",
+      "description": "Import Video"
+    },
+    {
+      "name": "video_import_media",
+      "description": "Import External Video"
+    },
+    {
+      "name": "video_inspect",
+      "description": "Inspect Timeline Frames"
+    },
+    {
+      "name": "video_list",
+      "description": "List Screenplays"
+    },
+    {
+      "name": "video_move_clip",
+      "description": "Move Timeline Clip"
+    },
+    {
+      "name": "video_preview",
+      "description": "Preview Video"
+    },
+    {
+      "name": "video_record",
+      "description": "Record Video"
+    },
+    {
+      "name": "video_rehearse",
+      "description": "Rehearse Screenplay"
+    },
+    {
+      "name": "video_remove_clip",
+      "description": "Remove Timeline Clip"
+    },
+    {
+      "name": "video_render",
+      "description": "Render Video"
+    },
+    {
+      "name": "video_reorder",
+      "description": "Reorder Timeline Clips"
+    },
+    {
+      "name": "video_save",
+      "description": "Save Screenplay"
+    },
+    {
+      "name": "video_segment",
+      "description": "Segment Video into Tracks"
+    },
+    {
+      "name": "video_set_clip",
+      "description": "Set Clip / Track Property"
+    },
+    {
+      "name": "video_set_keyframes",
+      "description": "Set Zoom Keyframe"
+    },
+    {
+      "name": "video_set_render_range",
+      "description": "Set Render Range"
+    },
+    {
+      "name": "video_settings",
+      "description": "Video Settings"
+    },
+    {
+      "name": "video_split",
+      "description": "Split Timeline Clip"
+    },
+    {
+      "name": "video_timeline",
+      "description": "Get Timeline"
+    },
+    {
+      "name": "video_trim",
+      "description": "Trim Timeline Clip"
+    },
+    {
+      "name": "video_upscale",
+      "description": "Upscale Video"
+    },
+    {
+      "name": "vision_camera_capture",
+      "description": "Capture Webcam Frame"
+    },
+    {
+      "name": "vision_color_pick",
+      "description": "Pick Color"
+    },
+    {
+      "name": "vision_ocr",
+      "description": "Extract Text from Image"
+    },
+    {
+      "name": "vision_screenshot",
+      "description": "Take Screenshot"
+    },
+    {
+      "name": "vision_stream_start",
+      "description": "Start Stream"
+    },
+    {
+      "name": "vision_stream_stop",
+      "description": "Stop Stream"
+    },
+    {
+      "name": "voice_chat_memory_add",
+      "description": "Remember Voice Chat Fact"
+    },
+    {
+      "name": "voice_chat_memory_clear",
+      "description": "Clear Voice Chat Memory"
+    },
+    {
+      "name": "voice_chat_session_reset",
+      "description": "Reset Voice Chat Session"
+    },
+    {
+      "name": "voice_chat_settings_get",
+      "description": "Get Voice Chat Settings"
+    },
+    {
+      "name": "voice_chat_settings_set",
+      "description": "Update Voice Chat Settings"
+    },
+    {
+      "name": "web_api_discover",
+      "description": "Discover APIs"
+    },
+    {
+      "name": "web_scrape",
+      "description": "Scrape Web Page"
+    },
+    {
+      "name": "web_search",
+      "description": "Web Search"
+    },
+    {
+      "name": "workspace_add",
+      "description": "Add to Workspace"
+    },
+    {
+      "name": "workspace_search",
+      "description": "Workspace Search"
+    },
+    {
+      "name": "youtube_transcript",
+      "description": "YouTube Transcript"
+    }
+  ]
+}

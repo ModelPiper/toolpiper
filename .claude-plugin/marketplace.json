@@ -1,0 +1,21 @@
+{
+  "name": "modelpiper",
+  "owner": {
+    "name": "ModelPiper",
+    "email": "bracicot@modelpiper.com",
+    "url": "https://modelpiper.com"
+  },
+  "metadata": {
+    "description": "Plugins from ModelPiper for ToolPiper, the on-device AI platform for macOS."
+  },
+  "plugins": [
+    {
+      "name": "toolpiper",
+      "source": "./plugins/toolpiper",
+      "description": "Connects Claude Code to ToolPiper, the on-device AI platform for macOS: local LLM inference, speech to text, vision and OCR, browser automation, video editing, and system control through one loopback MCP server.",
+      "homepage": "https://modelpiper.com/toolpiper",
+      "license": "MIT",
+      "tags": ["mcp", "macos", "local-ai", "on-device", "browser-automation", "speech", "vision", "system-control"]
+    }
+  ]
+}

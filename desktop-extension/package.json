@@ -1,0 +1,23 @@
+{
+  "name": "toolpiper-desktop-extension",
+  "version": "1.0.0",
+  "description": "Claude Desktop extension that forwards MCP traffic to a ToolPiper running on this Mac.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3"
+  }
+}
