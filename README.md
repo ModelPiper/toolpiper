@@ -14,7 +14,17 @@ No cloud. No Docker. No Python. No API keys. Nothing leaves your Mac, and you ca
 
 ## Quick start
 
-Install ToolPiper from [modelpiper.com/download](https://modelpiper.com/download), launch it once, then connect any MCP client over Streamable HTTP. Loopback connections need no auth: no token, no OAuth step.
+Install ToolPiper, launch it once, then connect any MCP client over Streamable HTTP. Loopback connections need no auth: no token, no OAuth step.
+
+Download the disk image from [modelpiper.com/download](https://modelpiper.com/download), or install with Homebrew:
+
+```bash
+brew tap modelpiper/tap
+brew trust modelpiper/tap
+brew install --cask toolpiper
+```
+
+The `trust` line is required once: Homebrew 6 refuses casks from taps outside its own until you trust them.
 
 **Claude Code, as a plugin** (one server entry, nothing to configure by hand):
 
@@ -39,7 +49,7 @@ claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
 }
 ```
 
-**Claude Desktop, as a one-click extension:** download `toolpiper-<version>.mcpb` from the [releases page](https://github.com/ModelPiper/toolpiper/releases) and double click it. Source and privacy statement: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
+**Claude Desktop, as a one-click extension:** the packaged `.mcpb` ships with the next release. Source, build script and privacy statement are here now: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
 
 Installing with an AI agent? Point it at [`llms-install.md`](llms-install.md).
 
