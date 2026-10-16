@@ -10,6 +10,11 @@
   },
   "homepage": "https://modelpiper.com/toolpiper",
   "repository": "https://github.com/ModelPiper/toolpiper",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://modelpiper.com/docs/toolpiper",
+  "supportUrl": "https://github.com/ModelPiper/toolpiper/issues",
+  "privacyPolicyUrl": "https://modelpiper.com/privacy",
+  "termsOfServiceUrl": "https://modelpiper.com/terms",
   "license": "MIT",
   "keywords": ["mcp", "macos", "local-ai", "on-device", "llama-cpp", "speech-to-text", "ocr", "browser-automation", "screenshot", "video-editing", "system-control"],
   "mcpServers": {
