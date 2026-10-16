@@ -71,4 +71,4 @@ claude mcp add --transport http toolpiper "http://127.0.0.1:9998/mcp?profile=aut
 
 ## Privacy notes
 
-ToolPiper never calls out: no telemetry, no analytics, no crash uploads. The only network traffic is what the user explicitly requests (model downloads, web-targeting tools). Verifiable on-machine: `lsof -i -P | grep ToolPiper`.
+With local models, the user's prompts, files and outputs stay on the Mac. ToolPiper's own traffic is limited to update checks, license checks when signed in, a daily activity count and optional usage counts, none of which carry the user's content; the daily activity count and usage counts can be turned off in Settings. There are no crash uploads. Other traffic is what the user explicitly requests (model downloads, cloud providers the user adds, web-targeting tools). Verifiable on-machine: `lsof -i -P | grep ToolPiper`.

@@ -82,6 +82,30 @@
       "description": "Transcribe Audio"
     },
     {
+      "name": "automation_create",
+      "description": "Create Automation"
+    },
+    {
+      "name": "automation_delete",
+      "description": "Delete Automation"
+    },
+    {
+      "name": "automation_get",
+      "description": "Get Automation"
+    },
+    {
+      "name": "automation_list",
+      "description": "List Automations"
+    },
+    {
+      "name": "automation_run_now",
+      "description": "Run Automation Now"
+    },
+    {
+      "name": "automation_update",
+      "description": "Update Automation"
+    },
+    {
       "name": "autopilot_history_query",
       "description": "Query Autopilot History"
     },
@@ -132,6 +156,10 @@
     {
       "name": "browser_dialog_handle",
       "description": "Handle JavaScript Dialog"
+    },
+    {
+      "name": "browser_element_get",
+      "description": "Read Page Element"
     },
     {
       "name": "browser_emulate",
@@ -186,8 +214,20 @@
       "description": "Browser Snapshot"
     },
     {
+      "name": "browser_source_get",
+      "description": "Read Page Source"
+    },
+    {
+      "name": "browser_source_list",
+      "description": "List Page Sources"
+    },
+    {
       "name": "browser_storage",
       "description": "Browser Storage"
+    },
+    {
+      "name": "browser_style_get",
+      "description": "Read Element Styles"
     },
     {
       "name": "browser_viewport_resize",
@@ -196,6 +236,10 @@
     {
       "name": "browser_webauthn",
       "description": "WebAuthn Testing"
+    },
+    {
+      "name": "browser_webmcp",
+      "description": "Browser WebMCP"
     },
     {
       "name": "chat",
@@ -218,8 +262,56 @@
       "description": "Search Code"
     },
     {
-      "name": "debug_leak",
-      "description": "Debug Leak (verification fixture)"
+      "name": "conversation_create",
+      "description": "Create Chat"
+    },
+    {
+      "name": "conversation_delete",
+      "description": "Delete Chat"
+    },
+    {
+      "name": "conversation_get",
+      "description": "Get Chat"
+    },
+    {
+      "name": "conversation_list",
+      "description": "List Chats"
+    },
+    {
+      "name": "conversation_move",
+      "description": "Move Chat"
+    },
+    {
+      "name": "conversation_pane_set",
+      "description": "Set Chat Pane"
+    },
+    {
+      "name": "conversation_pin",
+      "description": "Pin Chat"
+    },
+    {
+      "name": "conversation_rename",
+      "description": "Rename Chat"
+    },
+    {
+      "name": "conversation_unpin",
+      "description": "Unpin Chat"
+    },
+    {
+      "name": "conversation_workbench_close",
+      "description": "Close Workbench Tab"
+    },
+    {
+      "name": "conversation_workbench_open",
+      "description": "Open Workbench Tab"
+    },
+    {
+      "name": "doc_export",
+      "description": "Export a Doc or a Book"
+    },
+    {
+      "name": "doc_import",
+      "description": "Import a File as a Doc"
     },
     {
       "name": "endpoint_list",
@@ -434,6 +526,10 @@
       "description": "Remap Image Levels"
     },
     {
+      "name": "image_mask_from_shape",
+      "description": "Select by Shape"
+    },
+    {
       "name": "image_mask_refine",
       "description": "Refine Selection Mask"
     },
@@ -470,6 +566,10 @@
       "description": "Straighten Image"
     },
     {
+      "name": "image_stroke",
+      "description": "Brush Stroke"
+    },
+    {
       "name": "image_text",
       "description": "Add Text to Image"
     },
@@ -502,6 +602,10 @@
       "description": "Get Job Status"
     },
     {
+      "name": "media_dvr",
+      "description": "Buffer Live Stream"
+    },
+    {
       "name": "media_extract",
       "description": "Extract Page Media"
     },
@@ -510,72 +614,8 @@
       "description": "Host Media Artifact"
     },
     {
-      "name": "media_project_add_adjustment_layer",
-      "description": "Add Image Adjustment Layer"
-    },
-    {
-      "name": "media_project_add_facet",
-      "description": "Add Media Project Facet"
-    },
-    {
-      "name": "media_project_add_layer",
-      "description": "Add Image Layer"
-    },
-    {
-      "name": "media_project_add_source",
-      "description": "Add Media Project Source"
-    },
-    {
-      "name": "media_project_create",
-      "description": "Create Media Project"
-    },
-    {
-      "name": "media_project_delete",
-      "description": "Delete Media Project"
-    },
-    {
-      "name": "media_project_delete_layer",
-      "description": "Delete Image Layer"
-    },
-    {
-      "name": "media_project_flatten",
-      "description": "Flatten Image Layers"
-    },
-    {
-      "name": "media_project_get",
-      "description": "Get Media Project"
-    },
-    {
-      "name": "media_project_merge_down",
-      "description": "Merge Image Layer Down"
-    },
-    {
-      "name": "media_project_remove_source",
-      "description": "Remove Media Project Source"
-    },
-    {
-      "name": "media_project_rename",
-      "description": "Rename Media Project"
-    },
-    {
-      "name": "media_project_reorder_layers",
-      "description": "Reorder Image Layers"
-    },
-    {
-      "name": "media_project_reorder_source",
-      "description": "Reorder Media Project Sources"
-    },
-    {
-      "name": "media_project_set_layer",
-      "description": "Set Image Layer Properties"
-    },
-    {
-      "name": "media_project_set_layer_mask",
-      "description": "Set Image Layer Mask"
-    },
-    {
-      "name": "media_project_set_layer_transform",
-      "description": "Set Image Layer Transform"
+      "name": "media_record",
+      "description": "Record Live Stream"
     },
     {
       "name": "model_checkpoint_add",
@@ -630,18 +670,6 @@
       "description": "OAuth Connection Status"
     },
     {
-      "name": "outreach_project_get",
-      "description": "Get Outreach Project"
-    },
-    {
-      "name": "outreach_project_list",
-      "description": "List Outreach Projects"
-    },
-    {
-      "name": "outreach_project_update",
-      "description": "Update Outreach Project"
-    },
-    {
       "name": "pdf_extract",
       "description": "Extract from PDF"
     },
@@ -656,6 +684,34 @@
     {
       "name": "pose_stream_start",
       "description": "Start Pose Stream"
+    },
+    {
+      "name": "project_create",
+      "description": "Create Project"
+    },
+    {
+      "name": "project_delete",
+      "description": "Delete Project"
+    },
+    {
+      "name": "project_get",
+      "description": "Get Project"
+    },
+    {
+      "name": "project_list",
+      "description": "List Projects"
+    },
+    {
+      "name": "project_update",
+      "description": "Update Project"
+    },
+    {
+      "name": "provider_list",
+      "description": "List Provider Settings"
+    },
+    {
+      "name": "provider_set",
+      "description": "Change Provider Setting"
     },
     {
       "name": "qr_generate",
@@ -698,30 +754,6 @@
       "description": "Find More Tools"
     },
     {
-      "name": "schedule_create",
-      "description": "Create Schedule"
-    },
-    {
-      "name": "schedule_delete",
-      "description": "Delete Schedule"
-    },
-    {
-      "name": "schedule_get",
-      "description": "Get Schedule"
-    },
-    {
-      "name": "schedule_list",
-      "description": "List Schedules"
-    },
-    {
-      "name": "schedule_run_now",
-      "description": "Run Schedule Now"
-    },
-    {
-      "name": "schedule_update",
-      "description": "Update Schedule"
-    },
-    {
       "name": "serp_autocomplete",
       "description": "SERP Autocomplete"
     },
@@ -744,6 +776,10 @@
     {
       "name": "sieve_list",
       "description": "List Cached Sieves"
+    },
+    {
+      "name": "sieve_set",
+      "description": "Set Site Rules"
     },
     {
       "name": "sieve_test",
@@ -1542,6 +1578,10 @@
       "description": "Edit Narration Settings"
     },
     {
+      "name": "video_edit_region",
+      "description": "Edit a Tracked Region of a Video"
+    },
+    {
       "name": "video_edit_screenplay",
       "description": "Edit Screenplay Structure"
     },
@@ -1662,6 +1702,18 @@
       "description": "Extract Text from Image"
     },
     {
+      "name": "vision_record",
+      "description": "Record Screen"
+    },
+    {
+      "name": "vision_region_get",
+      "description": "Get Capture Region"
+    },
+    {
+      "name": "vision_region_set",
+      "description": "Set Capture Region"
+    },
+    {
       "name": "vision_screenshot",
       "description": "Take Screenshot"
     },
@@ -1704,6 +1756,106 @@
     {
       "name": "web_search",
       "description": "Web Search"
+    },
+    {
+      "name": "workbench_create",
+      "description": "Create Workbench"
+    },
+    {
+      "name": "workbench_delete",
+      "description": "Delete Workbench"
+    },
+    {
+      "name": "workbench_get",
+      "description": "Get Workbench"
+    },
+    {
+      "name": "workbench_image_add_adjustment_layer",
+      "description": "Add Image Adjustment Layer"
+    },
+    {
+      "name": "workbench_image_add_content_layer",
+      "description": "Add Text or Fill Layer"
+    },
+    {
+      "name": "workbench_image_add_layer",
+      "description": "Add Image Layer"
+    },
+    {
+      "name": "workbench_image_crop_canvas",
+      "description": "Crop Image Document"
+    },
+    {
+      "name": "workbench_image_delete_layer",
+      "description": "Delete Image Layer"
+    },
+    {
+      "name": "workbench_image_duplicate_layer",
+      "description": "Duplicate Image Layer"
+    },
+    {
+      "name": "workbench_image_export",
+      "description": "Export Image Document"
+    },
+    {
+      "name": "workbench_image_flatten",
+      "description": "Flatten Image Layers"
+    },
+    {
+      "name": "workbench_image_merge_down",
+      "description": "Merge Image Layer Down"
+    },
+    {
+      "name": "workbench_image_reorder_layers",
+      "description": "Reorder Image Layers"
+    },
+    {
+      "name": "workbench_image_resample",
+      "description": "Resample Image Document"
+    },
+    {
+      "name": "workbench_image_set_canvas",
+      "description": "Set Image Canvas"
+    },
+    {
+      "name": "workbench_image_set_layer",
+      "description": "Set Image Layer Properties"
+    },
+    {
+      "name": "workbench_image_set_layer_mask",
+      "description": "Set Image Layer Mask"
+    },
+    {
+      "name": "workbench_image_set_layer_transform",
+      "description": "Set Image Layer Transform"
+    },
+    {
+      "name": "workbench_image_set_layer_transforms",
+      "description": "Set Image Layer Transforms"
+    },
+    {
+      "name": "workbench_list",
+      "description": "List Workbenches"
+    },
+    {
+      "name": "workbench_redo",
+      "description": "Redo Workbench Edit"
+    },
+    {
+      "name": "workbench_rename",
+      "description": "Rename Workbench"
+    },
+    {
+      "name": "workbench_undo",
+      "description": "Undo Workbench Edit"
+    },
+    {
+      "name": "workbench_update_content",
+      "description": "Update Workbench Content"
+    },
+    {
+      "name": "workbench_update_view",
+      "description": "Update Workbench View"
     },
     {
       "name": "workspace_add",

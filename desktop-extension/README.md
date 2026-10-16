@@ -21,7 +21,8 @@ You can also drag the file onto the Claude Desktop window, or open Settings, Ext
 settings, Install extension.
 
 Then install ToolPiper itself from [modelpiper.com/toolpiper](https://modelpiper.com/toolpiper) and
-launch it once. Nothing else needs configuring: the connection is loopback, so there is no token,
+launch it once. This extension needs a ToolPiper newer than 0.0.9-beta (build 63). Earlier builds do
+not serve its tool profile. Nothing else needs configuring: the connection is loopback, so there is no token,
 no OAuth step and no account.
 
 ## Example prompts
@@ -38,9 +39,13 @@ no OAuth step and no account.
 
 Full policy: [modelpiper.com/privacy](https://modelpiper.com/privacy).
 
-**ToolPiper never calls out.** No telemetry, no analytics, no crash uploads, no account
-requirement. The only outbound network traffic is traffic you ask for by name: a model download
-from Hugging Face, or a tool you invoked that explicitly targets the web, such as `web_scrape`.
+**ToolPiper keeps your content on your Mac.** With local models, your prompts, files and outputs
+stay on this machine. ToolPiper contacts our servers for update checks, a license check when you're
+signed in and a daily activity count, and it can send optional usage counts. You can turn the last
+two off in Settings, and none of them include your content. There are no crash uploads, and local
+use needs no account. Other outbound traffic is traffic you ask for: a model download from Hugging
+Face, a cloud provider you add, or a tool you invoked that explicitly targets the web, such as
+`web_scrape`.
 
 **This extension speaks to loopback only.** Every request it makes goes to
 `http://127.0.0.1:9998` on this machine. It sends nothing anywhere else, it downloads nothing, and

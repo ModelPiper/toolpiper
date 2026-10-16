@@ -22,11 +22,13 @@ and the fix for each. It never edits your Claude configuration.
 
 ## Privacy
 
-ToolPiper never calls out. It sends no telemetry, no analytics and no crash reports, and it
-requires no account. This plugin reaches it over loopback only; nothing in the plugin contacts
-any other host. The only network traffic ToolPiper makes is the traffic you ask for, such as a
-model download or a tool that explicitly targets the web, and you can verify that on your own
-machine with `lsof -i -P | grep ToolPiper`.
+With local models, your prompts, files and outputs stay on your Mac. ToolPiper's own traffic is
+limited to update checks, license checks when you're signed in, a daily activity count and optional
+usage counts, none of which carry your content, and you can turn the last two off in Settings. It
+sends no crash reports, and local use needs no account. This plugin reaches ToolPiper over loopback
+only; nothing in the plugin contacts any other host. Other traffic is traffic you ask for, such as
+a model download, a cloud provider you add or a tool that explicitly targets the web. You can watch
+it on your own machine with `lsof -i -P | grep ToolPiper`.
 
 ## Versioning
 

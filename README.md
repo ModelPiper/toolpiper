@@ -2,7 +2,7 @@
 
 **400+ Model Context Protocol tools, all running on-device.** ToolPiper is a native macOS app that turns your Mac into a local AI platform: bundled inference (llama.cpp on Metal, Apple Intelligence, speech on the Neural Engine), an OpenAI-compatible API at `localhost:9998`, and a built-in MCP server that exposes the whole machine to any MCP client: Claude Code, Cursor, Codex, or your own scripts.
 
-No cloud. No Docker. No Python. No API keys. Nothing leaves your Mac, and you can verify that yourself: `lsof -i -P | grep ToolPiper` while it runs.
+No cloud required for local models. No Docker. No Python. No API keys. Your prompts, files and outputs stay on your Mac, and you can check what ToolPiper connects to yourself: `lsof -i -P | grep ToolPiper` while it runs.
 
 - **Website:** https://modelpiper.com/toolpiper
 - **Download:** https://modelpiper.com/download (free; the full local model runner has no caps and needs no account)
@@ -94,11 +94,13 @@ Streamable HTTP is the only transport. ToolPiper has no stdio server, and older 
 
 ## Privacy
 
-ToolPiper never calls out. No telemetry, no analytics, no crash uploads, no account requirement. The only network traffic is the traffic you ask for (model downloads from HuggingFace, tools that explicitly target the web). This is a property you can check, not a policy you have to trust:
+Your prompts, files and outputs stay on your Mac when you use local models. ToolPiper contacts our servers for update checks, a license check when you're signed in and a daily activity count, and it can send optional usage counts. You can turn the last two off in Settings, and none of them include your content. There are no crash uploads, and local use needs no account. Everything else is traffic you ask for: model downloads from HuggingFace, a cloud provider you add, and tools that explicitly target the web. You can watch it yourself:
 
 ```bash
 lsof -i -P | grep ToolPiper
 ```
+
+You will see update, license and activity requests to modelpiper.com hosts, optional usage counts to PostHog if you leave them on, plus any downloads or providers you chose, and none of them carry your content. Full policy: [modelpiper.com/privacy](https://modelpiper.com/privacy).
 
 ## Requirements and pricing
 
