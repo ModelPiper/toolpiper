@@ -49,7 +49,7 @@ claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
 }
 ```
 
-**Claude Desktop, as a one-click extension:** the packaged `.mcpb` ships with the next release. Source, build script and privacy statement are here now: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
+**Claude Desktop, as a one-click extension:** download [`toolpiper-1.0.0.mcpb`](https://github.com/ModelPiper/toolpiper/releases/download/desktop-extension-v1.0.0/toolpiper-1.0.0.mcpb) from [Releases](https://github.com/ModelPiper/toolpiper/releases) and double-click it; Claude Desktop shows its install sheet. The JSON block above does not apply to Claude Desktop, whose config file runs local stdio servers only. Source, build script and privacy statement: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
 
 Installing with an AI agent? Point it at [`llms-install.md`](llms-install.md).
 
