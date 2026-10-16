@@ -1,5 +1,5 @@
-src/
-test/
-tsconfig.json
-dist/
-.mcpbignore
+/src/
+/test/
+/tsconfig.json
+/dist/
+/.mcpbignore
