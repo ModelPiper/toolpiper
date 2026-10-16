@@ -26,16 +26,17 @@ still starting.
   few seconds). Then reconnect: in Claude Code run `/mcp` or start a new session; in Codex start
   a new session.
 - **Running but the client reports "needs authentication".** Loopback connections need no
-  token. In Claude Code this is stale session state: start a new session. Codex signs in to
-  ToolPiper once: run `codex mcp login toolpiper` and approve ToolPiper's consent page.
+  sign-in from Claude Code: this is stale session state, so start a new session. Codex signs in
+  to ToolPiper once: run `codex mcp login toolpiper` and approve ToolPiper's consent page.
 - **The agent is on a different machine from ToolPiper.** The plugin's server URL is loopback
-  only. Remote access exists but needs a bearer token and a manual server entry; point the user
-  at https://modelpiper.com/docs/toolpiper rather than editing configuration for them.
+  only. Point the user at ToolPiper's remote-access documentation,
+  https://modelpiper.com/docs/toolpiper, rather than editing configuration for them.
 
 ## Rules
 
-- Never edit `~/.claude`, `~/.claude.json`, `~/.codex/config.toml`, project `.mcp.json` files,
-  or any MCP server list. The plugin already declares the server; a second entry does not help.
+- Never edit the agent's own settings or any MCP server list. The plugin already declares the
+  server; a second entry does not help.
 - Install ToolPiper only from the DMG at modelpiper.com or the official Homebrew tap above, and
   only when the user asks. Never from another script or package source.
-- Never call the ToolPiper HTTP API with a token you found on disk; loopback needs none.
+- Read nothing from the user's files to reach ToolPiper. The loopback server needs no
+  credentials, so the three checks above are the whole diagnosis.
