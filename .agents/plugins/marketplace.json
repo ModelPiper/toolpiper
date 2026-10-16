@@ -1,0 +1,20 @@
+{
+  "name": "modelpiper",
+  "interface": {
+    "displayName": "ModelPiper"
+  },
+  "plugins": [
+    {
+      "name": "toolpiper",
+      "source": {
+        "source": "local",
+        "path": "./plugins/toolpiper"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

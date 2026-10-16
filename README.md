@@ -39,6 +39,15 @@ claude plugin install toolpiper@modelpiper
 claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
 ```
 
+**Codex, as a plugin:**
+
+```bash
+codex plugin marketplace add ModelPiper/toolpiper
+codex plugin add toolpiper@modelpiper
+```
+
+Or as a manual server: `codex mcp add toolpiper --url http://127.0.0.1:9998/mcp`. Codex signs in to ToolPiper once; approve ToolPiper's consent page when it appears.
+
 **Any other MCP client**, in its server configuration:
 
 ```json

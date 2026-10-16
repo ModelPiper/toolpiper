@@ -1,0 +1,35 @@
+{
+  "name": "toolpiper",
+  "version": "1.1.0",
+  "description": "Connects Codex to ToolPiper, the on-device AI platform for macOS: local LLM inference, speech to text, vision and OCR, browser automation, video editing, and system control through one loopback MCP server.",
+  "author": {
+    "name": "ModelPiper",
+    "email": "bracicot@modelpiper.com",
+    "url": "https://github.com/ModelPiper"
+  },
+  "homepage": "https://modelpiper.com/toolpiper",
+  "repository": "https://github.com/ModelPiper/toolpiper",
+  "license": "MIT",
+  "keywords": ["mcp", "macos", "local-ai", "on-device", "llama-cpp", "speech-to-text", "ocr", "browser-automation", "screenshot", "video-editing", "system-control"],
+  "skills": "./skills/",
+  "mcpServers": "./.codex-mcp.json",
+  "interface": {
+    "displayName": "ToolPiper",
+    "shortDescription": "On-device AI tools for macOS through one local MCP server.",
+    "longDescription": "ToolPiper is a native macOS app that turns your Mac into a local AI platform: LLM inference on Metal, speech to text and text to speech on the Neural Engine, Apple Vision OCR and image analysis, Chrome automation over the accessibility tree, video editing and native system control. This plugin points Codex at the ToolPiper already running on your Mac, over loopback, and adds a setup skill that checks the app is installed, running and listening. Install ToolPiper itself from modelpiper.com.",
+    "developerName": "ModelPiper",
+    "category": "Developer Tools",
+    "capabilities": ["MCP", "Skills"],
+    "websiteURL": "https://modelpiper.com/toolpiper",
+    "privacyPolicyURL": "https://modelpiper.com/privacy",
+    "termsOfServiceURL": "https://modelpiper.com/terms",
+    "defaultPrompt": [
+      "Read the text in the screenshot on my desktop and summarize it.",
+      "Transcribe ~/Downloads/standup.m4a and list the action items.",
+      "Check that ToolPiper is running and tell me its version."
+    ],
+    "brandColor": "#34D399",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png"
+  }
+}

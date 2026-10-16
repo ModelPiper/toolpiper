@@ -1,7 +1,7 @@
 {
   "name": "toolpiper",
   "displayName": "ToolPiper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Connects Claude Code to ToolPiper, the on-device AI platform for macOS: local LLM inference, speech to text, vision and OCR, browser automation, video editing, and system control through one loopback MCP server.",
   "author": {
     "name": "ModelPiper",
