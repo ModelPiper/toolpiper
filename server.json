@@ -44,7 +44,7 @@
       "transports": [
         "streamable-http"
       ],
-      "setup": "Install ToolPiper from https://modelpiper.com/download, launch it once, then: claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp"
+      "setup": "Install ToolPiper from https://modelpiper.com/download, launch it once, then: claude mcp add -s user --transport http toolpiper http://127.0.0.1:9998/mcp"
     }
   }
 }

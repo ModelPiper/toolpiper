@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "toolpiper",
   "display_name": "ToolPiper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "On-device MCP tools for macOS: local AI, speech, vision, browser automation, and system control, all running on your own Mac.",
   "long_description": "ToolPiper is a native macOS app that turns your Mac into a local AI platform: bundled inference on Metal and the Neural Engine, speech to text and text to speech, Apple Vision OCR and image analysis, Chrome automation over the accessibility tree, and native system control. This extension is a small forwarder: Claude Desktop launches it over stdio and it relays your requests to the ToolPiper already running on this Mac, over loopback. Nothing it sends leaves the machine.",
   "author": {
@@ -80,6 +80,10 @@
     {
       "name": "audio_transcribe",
       "description": "Transcribe Audio"
+    },
+    {
+      "name": "audio_waveform",
+      "description": "Audio Waveform"
     },
     {
       "name": "automation_create",
@@ -246,16 +250,12 @@
       "description": "Chat with Local LLM"
     },
     {
-      "name": "claude_code_install",
-      "description": "Install Claude Code Helper"
+      "name": "claude_code_engine_set",
+      "description": "Run Claude Code on ToolPiper"
     },
     {
       "name": "claude_code_status",
-      "description": "Claude Code Helper Status"
-    },
-    {
-      "name": "claude_code_uninstall",
-      "description": "Uninstall Claude Code Helper"
+      "description": "Claude Code Status"
     },
     {
       "name": "code_search",
@@ -374,6 +374,30 @@
       "description": "Write File"
     },
     {
+      "name": "flow_delete",
+      "description": "Delete Test"
+    },
+    {
+      "name": "flow_export",
+      "description": "Export Test"
+    },
+    {
+      "name": "flow_get",
+      "description": "Get Test"
+    },
+    {
+      "name": "flow_list",
+      "description": "List Tests"
+    },
+    {
+      "name": "flow_run",
+      "description": "Run Test"
+    },
+    {
+      "name": "flow_save",
+      "description": "Save Test"
+    },
+    {
       "name": "git_checkout",
       "description": "Git Checkout"
     },
@@ -424,14 +448,6 @@
     {
       "name": "gsc_sitemap_list",
       "description": "GSC Sitemaps"
-    },
-    {
-      "name": "hn_search",
-      "description": "Search Hacker News"
-    },
-    {
-      "name": "hn_trending_list",
-      "description": "HN Trending Stories"
     },
     {
       "name": "http_request",
@@ -722,6 +738,10 @@
       "description": "Add to Queue"
     },
     {
+      "name": "queue_add_variant",
+      "description": "Add Hook Variant"
+    },
+    {
       "name": "queue_list",
       "description": "List Content Queue"
     },
@@ -742,27 +762,19 @@
       "description": "Search Knowledge Base"
     },
     {
-      "name": "reddit_post",
-      "description": "Post to Reddit"
-    },
-    {
-      "name": "reddit_search",
-      "description": "Search Reddit"
-    },
-    {
       "name": "request_tools",
       "description": "Find More Tools"
     },
     {
-      "name": "serp_autocomplete",
+      "name": "seo_autocomplete",
       "description": "SERP Autocomplete"
     },
     {
-      "name": "serp_rank_check",
+      "name": "seo_rank_check",
       "description": "SERP Rank Check"
     },
     {
-      "name": "serp_search",
+      "name": "seo_serp_search",
       "description": "SERP Search"
     },
     {
@@ -1506,30 +1518,6 @@
       "description": "Update Task"
     },
     {
-      "name": "test_delete",
-      "description": "Delete Test"
-    },
-    {
-      "name": "test_export",
-      "description": "Export Test"
-    },
-    {
-      "name": "test_get",
-      "description": "Get Test"
-    },
-    {
-      "name": "test_list",
-      "description": "List Tests"
-    },
-    {
-      "name": "test_run",
-      "description": "Run Test"
-    },
-    {
-      "name": "test_save",
-      "description": "Save Test"
-    },
-    {
       "name": "text_analyze",
       "description": "Analyze Text"
     },
@@ -1554,8 +1542,16 @@
       "description": "Add Timeline Clip"
     },
     {
+      "name": "video_add_speech",
+      "description": "Add Speech"
+    },
+    {
       "name": "video_capabilities",
       "description": "Video Capabilities"
+    },
+    {
+      "name": "video_check",
+      "description": "Check Timeline Structure"
     },
     {
       "name": "video_clip",
@@ -1602,6 +1598,10 @@
       "description": "Export Timeline"
     },
     {
+      "name": "video_frames",
+      "description": "Video Frames"
+    },
+    {
       "name": "video_get",
       "description": "Get Screenplay"
     },
@@ -1646,8 +1646,16 @@
       "description": "Render Video"
     },
     {
+      "name": "video_render_preview",
+      "description": "Render Timeline Preview"
+    },
+    {
       "name": "video_reorder",
       "description": "Reorder Timeline Clips"
+    },
+    {
+      "name": "video_revoice",
+      "description": "Revoice Video"
     },
     {
       "name": "video_save",
@@ -1670,6 +1678,10 @@
       "description": "Set Render Range"
     },
     {
+      "name": "video_set_speech",
+      "description": "Set Speech"
+    },
+    {
       "name": "video_settings",
       "description": "Video Settings"
     },
@@ -1680,6 +1692,10 @@
     {
       "name": "video_timeline",
       "description": "Get Timeline"
+    },
+    {
+      "name": "video_transcribe",
+      "description": "Transcribe Clip Speech"
     },
     {
       "name": "video_trim",
@@ -1724,6 +1740,14 @@
     {
       "name": "vision_stream_stop",
       "description": "Stop Stream"
+    },
+    {
+      "name": "voice_chat_destination_set",
+      "description": "Set Voice Destination"
+    },
+    {
+      "name": "voice_chat_history_clear",
+      "description": "Clear Voice Chat History"
     },
     {
       "name": "voice_chat_memory_add",

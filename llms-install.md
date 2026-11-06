@@ -33,7 +33,7 @@ The plugin declares the server and bundles a setup skill that diagnoses a missin
 ### Claude Code: a manual server entry
 
 ```bash
-claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
+claude mcp add -s user --transport http toolpiper http://127.0.0.1:9998/mcp
 ```
 
 ### Any other MCP client
@@ -52,15 +52,15 @@ claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
 To reduce context usage, filter the catalog at connect time with a query parameter on the URL:
 
 ```bash
-claude mcp add --transport http toolpiper "http://127.0.0.1:9998/mcp?category=core"       # just LLM inference
-claude mcp add --transport http toolpiper "http://127.0.0.1:9998/mcp?profile=automation"  # core + browser + testing
+claude mcp add -s user --transport http toolpiper "http://127.0.0.1:9998/mcp?category=core"       # just LLM inference
+claude mcp add -s user --transport http toolpiper "http://127.0.0.1:9998/mcp?profile=automation"  # core + browser + testing
 ```
 
 ## Step 3: Verify
 
 1. Confirm the app is running: `pgrep -x ToolPiper` prints a process id.
 2. Confirm the server is listening: `curl -s http://127.0.0.1:9998/health` returns JSON containing `"status":"ok"`.
-3. From the MCP client, list tools. The catalog reports 400+ tools, 5 resources, and 5 prompts. A quick smoke test: call `system_status` with no arguments.
+3. From the MCP client, list tools. The catalog reports 450+ tools, 5 resources, and 5 prompts. A quick smoke test: call `system_status` with no arguments.
 
 ## Troubleshooting
 

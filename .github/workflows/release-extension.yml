@@ -1,0 +1,76 @@
+# Build and release the Claude Desktop extension when its version tag is pushed.
+#
+# WHY THIS EXISTS: the extension ships as a GitHub Release asset, and creating a
+# release takes a credential with write access to this repository. The tag push
+# already carries the maintainer's SSH key, so the bundle is built here from the
+# tagged source with the job's own token, and no personal token is minted or
+# stored. The maintainer's release script pushes the tag; afterwards it
+# downloads this asset, compares it with the source and runs it.
+name: Release Claude Desktop extension
+
+on:
+  push:
+    tags: ['desktop-extension-v*']
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      # Creates the release and uploads the bundle. Nothing else is written.
+      contents: write
+    defaults:
+      run:
+        working-directory: desktop-extension
+    env:
+      # Pinned rather than latest: an unattended release should not change
+      # behaviour because upstream cut a packer release.
+      MCPB_CLI: '@anthropic-ai/mcpb@2.1.2'
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: The tag names manifest.json's version
+        run: |
+          set -euo pipefail
+          VERSION="$(jq -r .version manifest.json)"
+          if [ "desktop-extension-v$VERSION" != "$GITHUB_REF_NAME" ]; then
+            echo "tag $GITHUB_REF_NAME does not name manifest.json's version $VERSION" >&2
+            exit 1
+          fi
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "ASSET=$RUNNER_TEMP/toolpiper-$VERSION.mcpb" >> "$GITHUB_ENV"
+
+      - name: Install runtime dependencies
+        run: npm ci --omit=dev
+
+      - name: Validate and pack
+        run: |
+          set -euo pipefail
+          npx -y "$MCPB_CLI" validate manifest.json
+          npx -y "$MCPB_CLI" pack . "$ASSET"
+
+      - name: The packed bundle runs
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/unpacked"
+          unzip -q "$ASSET" -d "$RUNNER_TEMP/unpacked"
+          TOOLPIPER_MCP_ORIGIN=http://127.0.0.1:9 node test/packed-smoke.mjs "$RUNNER_TEMP/unpacked/server/index.js"
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          SHA256="$(sha256sum "$ASSET" | cut -d' ' -f1)"
+          {
+            echo "Claude Desktop extension for ToolPiper. Double-click \`toolpiper-$VERSION.mcpb\` to install it in Claude Desktop. It connects Claude Desktop to the ToolPiper running on your Mac, over loopback only."
+            echo
+            echo "Requires ToolPiper 0.0.10-beta or later, from https://modelpiper.com/download (macOS 26 or later on Apple Silicon)."
+            echo
+            echo "SHA-256: \`$SHA256\`"
+          } > "$RUNNER_TEMP/notes.md"
+          gh release create "$GITHUB_REF_NAME" "$ASSET" --repo "$GITHUB_REPOSITORY" --verify-tag \
+            --title "ToolPiper Desktop Extension $VERSION" --notes-file "$RUNNER_TEMP/notes.md"

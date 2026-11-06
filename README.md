@@ -1,6 +1,6 @@
 # ToolPiper MCP Server for macOS
 
-**400+ Model Context Protocol tools, all running on-device.** ToolPiper is a native macOS app that turns your Mac into a local AI platform: bundled inference (llama.cpp on Metal, Apple Intelligence, speech on the Neural Engine), an OpenAI-compatible API at `localhost:9998`, and a built-in MCP server that exposes the whole machine to any MCP client: Claude Code, Cursor, Codex, or your own scripts.
+**450+ Model Context Protocol tools, all running on-device.** ToolPiper is a native macOS app that turns your Mac into a local AI platform: bundled inference (llama.cpp on Metal, Apple Intelligence, speech on the Neural Engine), an OpenAI-compatible API at `localhost:9998`, and a built-in MCP server that exposes the whole machine to any MCP client: Claude Code, Cursor, Codex, or your own scripts.
 
 No cloud required for local models. No Docker. No Python. No API keys. Your prompts, files and outputs stay on your Mac, and you can check what ToolPiper connects to yourself: `lsof -i -P | grep ToolPiper` while it runs.
 
@@ -36,7 +36,7 @@ claude plugin install toolpiper@modelpiper
 **Claude Code, as a manual server:**
 
 ```bash
-claude mcp add --transport http toolpiper http://127.0.0.1:9998/mcp
+claude mcp add -s user --transport http toolpiper http://127.0.0.1:9998/mcp
 ```
 
 **Codex, as a plugin:**
@@ -58,13 +58,13 @@ Or as a manual server: `codex mcp add toolpiper --url http://127.0.0.1:9998/mcp`
 }
 ```
 
-**Claude Desktop, as a one-click extension:** download [`toolpiper-1.0.0.mcpb`](https://github.com/ModelPiper/toolpiper/releases/download/desktop-extension-v1.0.0/toolpiper-1.0.0.mcpb) from [Releases](https://github.com/ModelPiper/toolpiper/releases) and double-click it; Claude Desktop shows its install sheet. The JSON block above does not apply to Claude Desktop, whose config file runs local stdio servers only. Source, build script and privacy statement: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
+**Claude Desktop, as a one-click extension:** download [`toolpiper-1.0.1.mcpb`](https://github.com/ModelPiper/toolpiper/releases/download/desktop-extension-v1.0.1/toolpiper-1.0.1.mcpb) from [Releases](https://github.com/ModelPiper/toolpiper/releases) and double-click it; Claude Desktop shows its install sheet. The JSON block above does not apply to Claude Desktop, whose config file runs local stdio servers only. Source, build script and privacy statement: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
 
 Installing with an AI agent? Point it at [`llms-install.md`](llms-install.md).
 
 ## What's in the catalog
 
-400+ tools, 5 resources, and 5 workflow prompts. Names follow `<category>_<action>` (`vision_ocr`, `system_window_snap`, `browser_assert`). The live catalog, with per-tool documentation, is at [modelpiper.com/mcp-tools](https://modelpiper.com/mcp-tools).
+450+ tools, 5 resources, and 5 workflow prompts. Names follow `<category>_<action>` (`vision_ocr`, `system_window_snap`, `browser_assert`). The live catalog, with per-tool documentation, is at [modelpiper.com/mcp-tools](https://modelpiper.com/mcp-tools).
 
 | Category | Examples | What it covers |
 |---|---|---|
@@ -74,9 +74,9 @@ Installing with an AI agent? Point it at [`llms-install.md`](llms-install.md).
 | Testing | `test_run`, `test_save`, `test_export` | Saved browser test sessions, fast replay, Playwright/Cypress export |
 | System actions | `system_*` | Windows, Spaces, clipboard (with OCR'd history), audio, displays, Finder, Calendar, Reminders, Contacts, notifications, processes, network, Bluetooth, Shortcuts, and more |
 | Video creator | `video_record`, `video_render`, `video_edit_timeline` | Screen-recorded screenplays, non-destructive timeline editing, OTIO/FCP XML/EDL export |
-| Outreach | `hn_search`, `reddit_search`, `github_compare`, `gsc_analytics` | HN, Reddit, GitHub, Google Search Console |
+| Outreach | `github_compare`, `queue_add`, `gsc_analytics` | GitHub, the content queue, Google Search Console |
 | Model management | `model_search`, `model_download`, `model_load` | Search HuggingFace, download GGUF/CoreML, load/unload |
-| Routing + integrations | `endpoint_set`, `endpoint_recommend`, `claude_code_install` | Switch inference endpoints per session, Claude Code helper install |
+| Routing + integrations | `endpoint_set`, `endpoint_recommend`, `claude_code_status` | Switch inference endpoints per session, see how Claude Code connects |
 
 **Resources:** `toolpiper://status`, `toolpiper://models`, `toolpiper://backends`, `toolpiper://tests`, `toolpiper://categories`
 **Prompts:** `setup-model`, `audit-page`, `create-test`, `voice-over`, `research-topic`
@@ -87,10 +87,10 @@ Don't want the whole catalog in context? Pass `category` or `profile` as a query
 
 ```bash
 # Just LLM inference (core category)
-claude mcp add --transport http toolpiper "http://127.0.0.1:9998/mcp?category=core"
+claude mcp add -s user --transport http toolpiper "http://127.0.0.1:9998/mcp?category=core"
 
 # Web dev workflow (automation profile: core + browser + testing)
-claude mcp add --transport http toolpiper "http://127.0.0.1:9998/mcp?profile=automation"
+claude mcp add -s user --transport http toolpiper "http://127.0.0.1:9998/mcp?profile=automation"
 ```
 
 ## Transport
