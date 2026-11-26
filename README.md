@@ -58,7 +58,7 @@ Or as a manual server: `codex mcp add toolpiper --url http://127.0.0.1:9998/mcp`
 }
 ```
 
-**Claude Desktop, as a one-click extension:** download [`toolpiper-1.0.1.mcpb`](https://github.com/ModelPiper/toolpiper/releases/download/desktop-extension-v1.0.1/toolpiper-1.0.1.mcpb) from [Releases](https://github.com/ModelPiper/toolpiper/releases) and double-click it; Claude Desktop shows its install sheet. The JSON block above does not apply to Claude Desktop, whose config file runs local stdio servers only. Source, build script and privacy statement: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
+**Claude Desktop, as a one-click extension:** download [`toolpiper-1.0.2.mcpb`](https://github.com/ModelPiper/toolpiper/releases/download/desktop-extension-v1.0.2/toolpiper-1.0.2.mcpb) from [Releases](https://github.com/ModelPiper/toolpiper/releases) and double-click it; Claude Desktop shows its install sheet. The JSON block above does not apply to Claude Desktop, whose config file runs local stdio servers only. Source, build script and privacy statement: [`desktop-extension/`](desktop-extension/). It is a small Node.js forwarder that relays Claude Desktop's stdio to the same loopback server, and it serves the `directory` profile: the catalog minus every tool that uses an AI model to generate images, video or audio.
 
 Installing with an AI agent? Point it at [`llms-install.md`](llms-install.md).
 
@@ -71,14 +71,14 @@ Installing with an AI agent? Point it at [`llms-install.md`](llms-install.md).
 | Core AI | `chat`, `audio_transcribe`, `audio_speak`, `text_embed` | Local LLM inference, speech-to-text and text-to-speech on the Neural Engine, embeddings |
 | Apple frameworks + RAG | `vision_ocr`, `image_analyze`, `text_analyze`, `rag_query` | Apple Vision OCR, image analysis, natural-language analysis, hybrid HNSW + BM25 document search |
 | Browser automation | `browser_snapshot`, `browser_action`, `browser_assert`, `browser_intercept` | Chrome via CDP: AX-tree snapshots, self-healing selectors, network mocking, Web Vitals, coverage |
-| Testing | `test_run`, `test_save`, `test_export` | Saved browser test sessions, fast replay, Playwright/Cypress export |
+| Testing | `test_run`, `test_save`, `test_export` | Saved browser flows, fast replay, Playwright/Cypress export |
 | System actions | `system_*` | Windows, Spaces, clipboard (with OCR'd history), audio, displays, Finder, Calendar, Reminders, Contacts, notifications, processes, network, Bluetooth, Shortcuts, and more |
 | Video creator | `video_record`, `video_render`, `video_edit_timeline` | Screen-recorded screenplays, non-destructive timeline editing, OTIO/FCP XML/EDL export |
 | Outreach | `github_compare`, `queue_add`, `gsc_analytics` | GitHub, the content queue, Google Search Console |
 | Model management | `model_search`, `model_download`, `model_load` | Search HuggingFace, download GGUF/CoreML, load/unload |
 | Routing + integrations | `endpoint_set`, `endpoint_recommend`, `claude_code_status` | Switch inference endpoints per session, see how Claude Code connects |
 
-**Resources:** `toolpiper://status`, `toolpiper://models`, `toolpiper://backends`, `toolpiper://tests`, `toolpiper://categories`
+**Resources:** `toolpiper://status`, `toolpiper://models`, `toolpiper://backends`, `toolpiper://flows`, `toolpiper://categories`
 **Prompts:** `setup-model`, `audit-page`, `create-test`, `voice-over`, `research-topic`
 
 ### Category and profile filtering

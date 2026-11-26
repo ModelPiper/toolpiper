@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "toolpiper",
   "display_name": "ToolPiper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "On-device MCP tools for macOS: local AI, speech, vision, browser automation, and system control, all running on your own Mac.",
   "long_description": "ToolPiper is a native macOS app that turns your Mac into a local AI platform: bundled inference on Metal and the Neural Engine, speech to text and text to speech, Apple Vision OCR and image analysis, Chrome automation over the accessibility tree, and native system control. This extension is a small forwarder: Claude Desktop launches it over stdio and it relays your requests to the ToolPiper already running on this Mac, over loopback. Nothing it sends leaves the machine.",
   "author": {
@@ -375,27 +375,27 @@
     },
     {
       "name": "flow_delete",
-      "description": "Delete Test"
+      "description": "Delete Flow"
     },
     {
       "name": "flow_export",
-      "description": "Export Test"
+      "description": "Export Flow"
     },
     {
       "name": "flow_get",
-      "description": "Get Test"
+      "description": "Get Flow"
     },
     {
       "name": "flow_list",
-      "description": "List Tests"
+      "description": "List Flows"
     },
     {
       "name": "flow_run",
-      "description": "Run Test"
+      "description": "Run Flow"
     },
     {
       "name": "flow_save",
-      "description": "Save Test"
+      "description": "Save Flow"
     },
     {
       "name": "git_checkout",
@@ -903,7 +903,7 @@
     },
     {
       "name": "system_app_list",
-      "description": "List Running Apps"
+      "description": "List Apps"
     },
     {
       "name": "system_app_press",
@@ -1740,10 +1740,6 @@
     {
       "name": "vision_stream_stop",
       "description": "Stop Stream"
-    },
-    {
-      "name": "voice_chat_destination_set",
-      "description": "Set Voice Destination"
     },
     {
       "name": "voice_chat_history_clear",
